@@ -89,7 +89,7 @@ export default function Login() {
         <div className="demo-credentials">
           <p className="demo-title">🔑 Admin Credentials</p>
           <div className="demo-info">
-            <p><strong>Email:</strong>  admin@example.com</p>
+            <p><strong>Email:</strong>  admin@gmail.com</p>
             <p><strong>Password:</strong> admin123</p>
           </div>
         </div>
