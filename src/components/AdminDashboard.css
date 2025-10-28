@@ -607,3 +607,46 @@
     font-size: 14px;
   }
 }
+
+
+@media (max-width: 768px) {
+  .response-section {
+    grid-template-columns: 1fr; /* Switch to one column on smaller screens */
+  }
+}
+
+.response-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.rating-response {
+  display: grid; /* Use grid layout */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 24px; /* Increased space between columns */
+  padding: 16px; /* Padding for better spacing */
+  background: #f9fafb; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 16px; /* Space between responses */
+}
+
+.response-question {
+  font-size: 16px;
+  color: #1a1a1a; /* Darker color for questions */
+  font-weight: 600; /* Bold for emphasis */
+}
+
+.response-answer {
+  font-size: 16px;
+  color: #2563eb; /* Blue color for answers */
+  padding-left: 16px; /* Space from the left */
+  line-height: 1.5; /* Better line spacing */
+}
+
+@media (max-width: 768px) {
+  .response-section {
+    grid-template-columns: 1fr; /* Switch to one column on smaller screens */
+  }
+}
