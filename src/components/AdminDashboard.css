@@ -615,38 +615,57 @@
   }
 }
 
-.response-section {
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e0e0e0;
+.responses-section {
+  margin-top: 48px;
 }
 
-.rating-response {
-  display: grid; /* Use grid layout */
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 24px; /* Increased space between columns */
-  padding: 16px; /* Padding for better spacing */
-  background: #f9fafb; /* Light background for contrast */
+.responses-section h2 {
+  font-size: 24px; /* Header size */
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px; /* Margin below header */
+}
+
+.response-card-container {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping of cards */
+  gap: 16px; /* Space between cards */
+}
+
+.response-card {
+  flex: 1 1 calc(50% - 16px); /* Two cards in one row, accounting for gaps */
+  max-width: 400px; /* Set max width for cards */
+  padding: 16px; /* Padding for card content */
+  background: white; /* Background color for cards */
   border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-bottom: 16px; /* Space between responses */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effect */
 }
 
-.response-question {
-  font-size: 16px;
-  color: #1a1a1a; /* Darker color for questions */
-  font-weight: 600; /* Bold for emphasis */
+.response-card:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-.response-answer {
-  font-size: 16px;
-  color: #2563eb; /* Blue color for answers */
-  padding-left: 16px; /* Space from the left */
-  line-height: 1.5; /* Better line spacing */
+.response-header h3 {
+  font-size: 16px; /* Smaller header size */
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.response-date {
+  font-size: 12px; /* Smaller date font */
+  color: #666;
+}
+
+.instructor-info p,
+.participant-info p {
+  font-size: 14px; /* Smaller font size */
+  color: #333;
 }
 
 @media (max-width: 768px) {
-  .response-section {
-    grid-template-columns: 1fr; /* Switch to one column on smaller screens */
+  .response-card {
+    flex: 1 1 100%; /* Full width for each card on smaller screens */
   }
 }

@@ -433,100 +433,70 @@ export default function AdminDashboard() {
 
           <div className="responses-section">
   <h2>Individual Responses</h2>
-  {evaluations.map((evaluation, index) => (
-    <div key={evaluation.id} className="response-card">
-      <div className="response-header">
-        <h3>Response #{index + 1}</h3>
-        <span className="response-date">
-          {new Date(evaluation.submitted_at).toLocaleDateString()} at{' '}
-          {new Date(evaluation.submitted_at).toLocaleTimeString()}
-        </span>
-      </div>
-
-      {/* Added Instructor Name, Course, and Date */}
-      <div className="instructor-info">
-        {evaluation.instructor_name && (
-          <p><strong>Instructor Name:</strong> {evaluation.instructor_name}</p>
-        )}
-        {evaluation.course && (
-          <p><strong>Course:</strong> {evaluation.course}</p>
-        )}
-        {evaluation.course_date && (
-          <p><strong>Date:</strong> {new Date(evaluation.course_date).toLocaleDateString()}</p>
-        )}
-      </div>
-
-      {(evaluation.participant_name || evaluation.participant_email) && (
-        <div className="participant-info">
-          {evaluation.participant_name && <p><strong>Name:</strong> {evaluation.participant_name}</p>}
-          {evaluation.participant_email && <p><strong>Email:</strong> {evaluation.participant_email}</p>}
+  <div className="response-card-container">
+    {evaluations.map((evaluation, index) => (
+      <div key={evaluation.id} className="response-card">
+        <div className="response-header">
+          <h3>Response #{index + 1}</h3>
+          <span className="response-date">
+            {new Date(evaluation.submitted_at).toLocaleDateString()} at{' '}
+            {new Date(evaluation.submitted_at).toLocaleTimeString()}
+          </span>
         </div>
-      )}
 
-      <div className="response-section">
-        <h4>Ratings</h4>
-        {evaluation.ratings.map((rating, idx) => (
-          <div key={idx} className="rating-response">
-            <p className="response-question">{rating.question}</p>
-            <p className="response-answer">{getRatingLabel(rating.rating)}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="response-section">
-        <h4>Open-Ended Responses</h4>
-        {evaluation.open_ended_responses.map((response, idx) => (
-          <div key={idx} className="open-response">
-            <p className="response-question">{response.question}</p>
-            <p className="response-answer">{response.response || 'No response provided'}</p>
-          </div>
-        ))}
-      </div>
-
-      {evaluation.sources && evaluation.sources.length > 0 && (
-        <>
-          {/* Overall Evaluation */}
-          {evaluation.sources.filter(s => ['Excellent', 'Very Good', 'Good', 'Fair', 'Poor'].includes(s)).length > 0 && (
-            <div className="response-section">
-              <h4>Overall Training Evaluation</h4>
-              <div className="sources-tags">
-                {evaluation.sources
-                  .filter(s => ['Excellent', 'Very Good', 'Good', 'Fair', 'Poor'].includes(s))
-                  .map((source, idx) => (
-                    <span key={idx} className="source-tag">
-                      {source}
-                    </span>
-                  ))}
-              </div>
-            </div>
+        {/* Instructor and Course Info */}
+        <div className="instructor-info">
+          {evaluation.instructor_name && (
+            <p><strong>Instructor Name:</strong> {evaluation.instructor_name}</p>
           )}
-          
-          {/* Information Sources */}
-          {evaluation.sources.filter(s => !['Excellent', 'Very Good', 'Good', 'Fair', 'Poor'].includes(s)).length > 0 && (
-            <div className="response-section">
-              <h4>Information Sources</h4>
-              <div className="sources-tags">
-                {evaluation.sources
-                  .filter(s => !['Excellent', 'Very Good', 'Good', 'Fair', 'Poor'].includes(s))
-                  .map((source, idx) => (
-                    <span key={idx} className="source-tag">
-                      {getSourceLabel(source)}
-                    </span>
-                  ))}
-              </div>
-            </div>
+          {evaluation.course && (
+            <p><strong>Course:</strong> {evaluation.course}</p>
           )}
-        </>
-      )}
+          {evaluation.course_date && (
+            <p><strong>Date:</strong> {new Date(evaluation.course_date).toLocaleDateString()}</p>
+          )}
+        </div>
 
-      {evaluation.additional_comments && (
+        {/* Participant Info */}
+        {(evaluation.participant_name || evaluation.participant_email) && (
+          <div className="participant-info">
+            {evaluation.participant_name && <p><strong>Name:</strong> {evaluation.participant_name}</p>}
+            {evaluation.participant_email && <p><strong>Email:</strong> {evaluation.participant_email}</p>}
+          </div>
+        )}
+
+        {/* Ratings Section */}
         <div className="response-section">
-          <h4>Additional Comments</h4>
-          <p className="response-answer">{evaluation.additional_comments}</p>
+          <h4>Ratings</h4>
+          {evaluation.ratings.map((rating, idx) => (
+            <div key={idx} className="rating-response">
+              <p className="response-question">{rating.question}</p>
+              <p className="response-answer">{getRatingLabel(rating.rating)}</p>
+            </div>
+          ))}
         </div>
-      )}
-    </div>
-  ))}
+
+        {/* Open-Ended Responses */}
+        <div className="response-section">
+          <h4>Open-Ended Responses</h4>
+          {evaluation.open_ended_responses.map((response, idx) => (
+            <div key={idx} className="open-response">
+              <p className="response-question">{response.question}</p>
+              <p className="response-answer">{response.response || 'No response provided'}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Comments */}
+        {evaluation.additional_comments && (
+          <div className="response-section">
+            <h4>Additional Comments</h4>
+            <p className="response-answer">{evaluation.additional_comments}</p>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
 </div>
         </>
       )}
