@@ -464,6 +464,14 @@ body {
   border-style: solid;
 }
 
+.success-message {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
 .success-card {
   background: white;
   padding: 64px 48px;
