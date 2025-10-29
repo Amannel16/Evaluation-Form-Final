@@ -157,7 +157,7 @@ export default function EvaluationForm() {
 
       <form onSubmit={handleSubmit} className="evaluation-form">
         <section className="form-section">
-  <h2>Participant Information (Optional)</h2>
+  <h2>Trainer Information</h2>
   
   <div className="form-group">
     <label htmlFor="instructorName">Instructor Name</label>
