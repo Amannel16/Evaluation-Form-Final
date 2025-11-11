@@ -12,6 +12,7 @@
   - `training_id` (text) - Custom training identifier
   - `batch_id` (text) - Batch identifier
   - `training_name` (text) - Name of the training program
+  - `instructor_name` (text) - Name of the instructor
   - `description` (text) - Description of the training
   - `start_date` (date) - Training start date
   - `end_date` (date) - Training end date
@@ -48,6 +49,7 @@ CREATE TABLE IF NOT EXISTS training_sessions (
   training_id text NOT NULL,
   batch_id text NOT NULL,
   training_name text NOT NULL,
+  instructor_name text NOT NULL DEFAULT '',
   description text DEFAULT '',
   start_date date,
   end_date date,

@@ -201,7 +201,7 @@ export default function EvaluationForm() {
   </div>
 
   <div className="form-group">
-  <label htmlFor="courseDate">Course Date</label>
+  <label htmlFor="courseDate">Date</label>
   <input
     type="date"
     id="courseDate"
